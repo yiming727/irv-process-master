@@ -1,0 +1,43 @@
+server:
+  servlet:
+    context-path: /system
+  port: 63110
+#微服务配置
+spring:
+  application:
+    name: system-api
+  cloud:
+    nacos:
+      server-addr: 192.168.101.65:8848
+      discovery:
+        namespace: ${spring.profiles.active}
+        group: irv-process-project
+      config: #配置文件相关配置
+        namespace: ${spring.profiles.active}
+        group: irv-process-project
+        file-extension: yaml
+        refresh-enabled: true
+        extension-configs: # 引入nacos配置中心system-service中的配置
+          - data-id: system-service-${spring.profiles.active}.yaml
+            group: irv-process-project
+            refresh: true
+        shared-configs: # 把日志系统以及swagger接口文档也配置到nacos配置中心
+          - data-id: swagger-${spring.profiles.active}.yaml
+            group: irv-process-common
+            refresh: true
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: irv-process-common
+            refresh: true
+  profiles:
+    active: irv
+## 日志文件配置路径
+#logging:
+#  config: classpath:log4j2-dev.xml
+#
+## swagger 文档配置
+#swagger:
+#  title: "学成在线内容管理系统"
+#  description: "内容系统管理系统对红外相关信息进行业务管理数据"
+#  base-package: com.irv.content
+#  enabled: true
+#  version: 1.0.0

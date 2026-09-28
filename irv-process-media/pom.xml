@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>irv-process-parent</artifactId>
+        <groupId>com.irv</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../irv-process-parent</relativePath>
+    </parent>
+    <artifactId>irv-process-media</artifactId>
+    <name>irv-process-media</name>
+    <description>irv-process-media</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>irv-process-media-api</module>
+        <module>irv-process-media-service</module>
+        <module>irv-process-media-model</module>
+    </modules>
+</project>
